@@ -1,2 +1,3 @@
 # team-00
-Sample team repo for professor
+
+This is the sample team private repo for ITMT-430
