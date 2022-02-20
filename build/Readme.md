@@ -1,3 +1,3 @@
-# Content of Build Directory
+# Scripts For Automating the Creation of the App
 
-All code, instructions, and templates needed to build the entire application will go here
+This directory will include build scripts of Bash and PowerShell in order to allow you to automate the creation, addition, and destruction of your site
