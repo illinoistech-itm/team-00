@@ -64,5 +64,5 @@ Write-Host "All finished!"
 Set-Location -Path ../powershell
 } # end of if
 else {
-  Write-Host echo "To run the script you need to type: ./remove-and-retrieve-and-add-vagrant-boxes.ps1 XX -- where XX is your team number, with leading zero"
+  Write-Host "To run the script you need to type: ./remove-and-retrieve-and-add-vagrant-boxes.ps1 XX -- where XX is your team number, with leading zero"
 }
