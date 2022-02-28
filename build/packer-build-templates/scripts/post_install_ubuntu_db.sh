@@ -8,7 +8,7 @@ set -v
 
 sudo apt-get install -y mariadb-server firewalld
 
-git clone git@github.com:illinoistech-itm/team-00.git
+su - vagrant -c "git clone git@github.com:illinoistech-itm/team-00.git"
 
 # Enable http in the firewall
 sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent

@@ -14,7 +14,7 @@ sudo apt-get install -y nginx firewalld
 # The command: su - vagrant -c switches from root to the user vagrant to execute 
 # the git clone command
 ##################################################################################
-su - vagrant -c "git clone git@github.com:illinoistech-itm/2022-teamXXm.git"
+su - vagrant -c "git clone git@github.com:illinoistech-itm/team-00.git"
 
 # Enable http in the firewall
 sudo firewall-cmd --zone=public --add-service=http --permanent
