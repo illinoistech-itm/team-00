@@ -1,3 +1,15 @@
 id_ed25519_github_deploy_key*
 config
-.vagrant
+.vagrant/
+
+# Node JS
+node_modules/
+
+variables.pkr.hcl
+
+.DS_Store
+id_rsa
+id_rsa*
+id_rsa.pub
+.Vagrantfile*
+Vagrantfile~

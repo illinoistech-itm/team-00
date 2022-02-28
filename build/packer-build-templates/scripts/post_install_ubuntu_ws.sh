@@ -20,5 +20,3 @@ sudo apt-get install -y nodejs
 # Enable http in the firewall
 sudo firewall-cmd --zone=public --add-service=http --permanent
 sudo firewall-cmd --reload
-
-git clone git@github.com:illinoistech-itm/team-00.git
