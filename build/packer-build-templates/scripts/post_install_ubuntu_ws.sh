@@ -31,8 +31,12 @@ sudo npm install -g npm@8.5.2
 sudo npm install pm2 -g 
 
 # Command to create a service handler and start that javascript app at boot time
+pm2 startup
+# The pm2 startup command generates this command
+sudo su -c "env PATH=$PATH:/home/unitech/.nvm/versions/node/v14.3/bin pm2 startup <distribution> -u <user> --hp <home-path>"
 pm2 start server.js
 pm2 save
+
 # Enable http in the firewall
 sudo firewall-cmd --zone=public --add-service=http --permanent
 sudo firewall-cmd --reload
