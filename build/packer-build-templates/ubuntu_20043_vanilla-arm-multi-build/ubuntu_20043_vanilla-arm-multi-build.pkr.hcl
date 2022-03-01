@@ -66,7 +66,6 @@ source "parallels-iso" "ws2" {
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
   ssh_password            = "${var.SSHPW}"
-  ssh_host                = {{ .HTTPIP }}
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
