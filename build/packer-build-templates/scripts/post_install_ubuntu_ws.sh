@@ -44,6 +44,7 @@ sudo npm install pm2 -g
 pm2 startup
 # The pm2 startup command generates this command
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u vagrant --hp /home/vagrant
+sudo chown vagrant:vagrant /home/vagrant/.pm2/rpc.sock /home/vagrant/.pm2/pub.sock
 pm2 start server.js
 pm2 save
 
