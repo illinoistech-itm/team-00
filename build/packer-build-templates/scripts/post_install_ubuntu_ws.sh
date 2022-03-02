@@ -39,4 +39,5 @@ pm2 save
 
 # Enable http in the firewall
 sudo firewall-cmd --zone=public --add-service=http --permanent
+sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
 sudo firewall-cmd --reload
