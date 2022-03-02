@@ -8,6 +8,16 @@ set -v
 
 sudo apt-get install -y nginx firewalld
 
+#################################################################################
+# Update /etc/hosts file
+#################################################################################
+
+echo "192.168.56.101     lb    lb.class.edu"    | sudo tee -a /etc/hosts
+echo "192.168.56.102     ws1   ws1.class.edu"   | sudo tee -a /etc/hosts
+echo "192.168.56.103     ws2   ws2.class.edu"   | sudo tee -a /etc/hosts
+echo "192.168.56.104     ws3   ws3.class.edu"   | sudo tee -a /etc/hosts
+echo "192.168.56.105     db    db.class.edu"    | sudo tee -a /etc/hosts
+
 ###################################################
 # Example how to install NodeJS
 ###################################################
@@ -18,7 +28,7 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 su - vagrant -c "git clone git@github.com:illinoistech-itm/team-00.git"
-cd ./team-00/code/express-static-app
+cd /home/vagrant/team-00/code/express-static-app
 
 # This will use the package.json files to install all the applcation 
 # needed packages and upgrade npm
