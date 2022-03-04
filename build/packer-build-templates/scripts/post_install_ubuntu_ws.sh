@@ -27,6 +27,17 @@ echo "192.168.56.105     db    db.class.edu"    | sudo tee -a /etc/hosts
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
+#################################################################################
+# Create Self-signed cert request and key
+#################################################################################
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048  -keyout /etc/ssl/private/expressjs-selfsigned.key -out /etc/ssl/certs/expressjs-selfsigned.crt -subj "/C=US/ST=IL/L=Chicago/O=IIT/OU=SAT/CN=class.edu"
+
+#################################################################################
+# Change the value of XX to be your team GitHub Repo
+# Otherwise your clone operation will fail
+# The command: su - vagrant -c switches from root to the user vagrant to execute 
+# the git clone command
+##################################################################################
 su - vagrant -c "git clone git@github.com:illinoistech-itm/team-00.git"
 cd /home/vagrant/team-00/code/express-static-app
 
@@ -50,6 +61,6 @@ pm2 save
 sudo chown vagrant:vagrant /home/vagrant/.pm2/rpc.sock /home/vagrant/.pm2/pub.sock
 
 # Enable http in the firewall
-sudo firewall-cmd --zone=public --add-service=http --permanent
+sudo firewall-cmd --zone=public --add-service=https --permanent
 sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
 sudo firewall-cmd --reload
