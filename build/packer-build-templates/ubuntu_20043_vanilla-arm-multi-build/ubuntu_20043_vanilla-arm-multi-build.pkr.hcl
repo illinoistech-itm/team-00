@@ -8,6 +8,7 @@ source "parallels-iso" "lb" {
   disk_size               = 15000
   parallels_tools_flavor  = "lin"
   guest_os_type           = "ubuntu"
+  hard_drive_interface    = "sata"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
@@ -33,6 +34,7 @@ source "parallels-iso" "ws1" {
   disk_size               = 15000
   parallels_tools_flavor  = "lin"
   guest_os_type           = "ubuntu"
+  hard_drive_interface    = "sata"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
@@ -58,6 +60,7 @@ source "parallels-iso" "ws2" {
   disk_size               = 15000
   parallels_tools_flavor  = "lin"
   guest_os_type           = "ubuntu"
+  hard_drive_interface    = "sata"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
@@ -83,6 +86,7 @@ source "parallels-iso" "ws3" {
   disk_size               = 15000
   parallels_tools_flavor  = "lin"
   guest_os_type           = "ubuntu"
+  hard_drive_interface    = "sata"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
@@ -108,6 +112,7 @@ source "parallels-iso" "db" {
   disk_size               = 15000
   parallels_tools_flavor  = "lin"
   guest_os_type           = "ubuntu"
+  hard_drive_interface    = "sata"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
