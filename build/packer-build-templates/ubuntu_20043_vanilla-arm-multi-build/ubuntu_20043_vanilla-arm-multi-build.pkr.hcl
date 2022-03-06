@@ -22,7 +22,7 @@ source "parallels-iso" "lb" {
   parallels_tools_mode    = "upload"
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"], ["set", "{{.Name}}","--device-add", "net --type host-only"]]
+  prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"], ["set", "{{.Name}}","--device-set", "ens0p5", "net --type host-only"]]
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "lb"
 }
