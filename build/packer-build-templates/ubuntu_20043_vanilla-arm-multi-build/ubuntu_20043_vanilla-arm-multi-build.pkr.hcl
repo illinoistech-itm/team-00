@@ -7,7 +7,6 @@ source "parallels-iso" "lb" {
   boot_wait               = "15s"
   disk_size               = 15000
   parallels_tools_flavor  = "lin-arm"
-  communicator            = "ssh"
   guest_os_type           = "ubuntu"
   hard_drive_interface    = "sata"
   http_directory          = "subiquity/http"
@@ -48,9 +47,10 @@ source "parallels-iso" "ws1" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
+  memory                  = "${var.memory_amount}"
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"], ["set", "{{.Name}}", "--startup-view", "headless"]]
+  prlctl                  = ["set", "{{.Name}}", "--device-set", "net0", "--type", "host-only"]
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "ws1"
 }
