@@ -50,7 +50,7 @@ source "parallels-iso" "ws1" {
   memory                  = "${var.memory_amount}"
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = ["set", "{{.Name}}", "--device-set", "net0", "--type", "host-only"]
+  prlctl                  = ["set", "{{.Name}}", "--device-set", "net0", "net","--type", "host-only"]
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "ws1"
 }
