@@ -17,7 +17,8 @@ source "parallels-iso" "lb" {
   iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04.4-live-server-arm64.iso"]
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
-  ssh_password            = "${var.SSHPW}"
+  #ssh_password            = "${var.SSHPW}"
+  ssh_password            = "vagrant"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "disable"
