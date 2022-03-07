@@ -6,7 +6,7 @@ source "parallels-iso" "lb" {
   boot_command          = ["<esc>", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
   boot_wait               = "15s"
   disk_size               = 15000
-  parallels_tools_flavor  = "lin"
+  parallels_tools_flavor  = "lin-arm"
   communicator            = "ssh"
   guest_os_type           = "ubuntu"
   hard_drive_interface    = "sata"
@@ -21,9 +21,9 @@ source "parallels-iso" "lb" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "disable"
+  memory                  = "${var.memory_amount}"
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"], ["set", "{{.Name}}","--device-set", "net0", "--type", "host-only"]]
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "lb"
 }
