@@ -20,6 +20,7 @@ source "parallels-iso" "ubuntu-20043-live-server-arm" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
+  http_bind_address       = "127.0.0.1"
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
   prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"]]
