@@ -11,8 +11,8 @@ source "parallels-iso" "ubuntu-20043-live-server-arm-pvm" {
   http_directory          = "subiquity/http"
   http_port_max           = 9050
   http_port_min           = 9001
-  iso_checksum            = "sha256:d6fea1f11b4d23b481a48198f51d9b08258a36f6024cb5cec447fe78379959ce"
-  iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04.3-live-server-arm64.iso"]
+  iso_checksum            = "sha256:fef8bc204d2b09b579b9d40dfd8c5a084f8084a9bffafe8a0f39a0e53606312d"
+  iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04.4-live-server-arm64.iso"]
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   #ssh_handshake_attempts  = "80"
   ssh_wait_timeout        = "1800s"
