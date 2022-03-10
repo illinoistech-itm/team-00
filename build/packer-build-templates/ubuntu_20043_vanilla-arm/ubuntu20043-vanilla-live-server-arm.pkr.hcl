@@ -5,11 +5,12 @@ source "parallels-iso" "ubuntu-20043-live-server-arm" {
   #http_bind_address       = "127.0.0.1"
   # https://github.com/chef/bento/blob/main/packer_templates/ubuntu/ubuntu-20.04-arm64.json
   boot_command          = ["<esc>", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
-  boot_wait               = "15s"
+  boot_wait               = "5s"
   disk_size               = 15000
-  parallels_tools_flavor  = "lin"
+  parallels_tools_flavor  = "lin-arm"
   guest_os_type           = "ubuntu"
   http_directory          = "subiquity/http"
+  hard_drive_interface    = "sata"
   http_port_max           = 9200
   http_port_min           = 9001
   iso_checksum            = "sha256:d6fea1f11b4d23b481a48198f51d9b08258a36f6024cb5cec447fe78379959ce"
@@ -22,9 +23,10 @@ source "parallels-iso" "ubuntu-20043-live-server-arm" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
+  memory                  = "4096"
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"]]
+  #prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"]]
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "ubuntu-focal-arm"
 }
