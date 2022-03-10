@@ -18,7 +18,7 @@ source "parallels-iso" "ubuntu-20043-live-server-arm" {
   ssh_wait_timeout        = "1800s"
   #ssh_password            = "${var.SSHPW}"
   ssh_password            = "vagrant"
-  ssh_port                = 2222
+  #ssh_port                = 2222
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
