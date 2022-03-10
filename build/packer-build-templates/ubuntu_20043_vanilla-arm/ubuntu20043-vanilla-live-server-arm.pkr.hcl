@@ -10,7 +10,7 @@ source "parallels-iso" "ubuntu-20043-live-server-arm" {
   parallels_tools_flavor  = "lin"
   guest_os_type           = "ubuntu"
   http_directory          = "subiquity/http"
-  http_port_max           = 9050
+  http_port_max           = 9200
   http_port_min           = 9001
   iso_checksum            = "sha256:d6fea1f11b4d23b481a48198f51d9b08258a36f6024cb5cec447fe78379959ce"
   iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04.3-live-server-arm64.iso"]
