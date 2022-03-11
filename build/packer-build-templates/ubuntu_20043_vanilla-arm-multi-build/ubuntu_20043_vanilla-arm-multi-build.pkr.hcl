@@ -6,9 +6,9 @@ source "parallels-iso" "lb" {
   boot_command          = ["<esc>", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
   boot_wait               = "5s"
   disk_size               = 15000
-  parallels_tools_flavor  = "lin-arm"
+  parallels_tools_flavor  = "lin"
   guest_os_type           = "ubuntu"
-  hard_drive_interface    = "sata"
+  #hard_drive_interface    = "sata"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
