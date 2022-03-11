@@ -19,7 +19,7 @@ source "parallels-iso" "lb" {
   ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
-  parallels_tools_mode    = "disable"
+  parallels_tools_mode    = "upload"
   memory                  = "${var.memory_amount}"
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
