@@ -20,9 +20,9 @@ source "parallels-iso" "lb" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
-  memory                  = "${var.memory_amount}"
   # Hint to fix the problem of "initramfs unpacking failed" error
-  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
+  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
+  memory                  = "${var.memory_amount}"
   prlctl                  = [["set", "{{.Name}}", "--bios-type", "efi-arm64" ]]
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "lb"
@@ -47,10 +47,10 @@ source "parallels-iso" "ws1" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
-  memory                  = "${var.memory_amount}"
   # Hint to fix the problem of "initramfs unpacking failed" error
-  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = [["set", "{{.Name}}", "--device-set", "net0", "--type", "host-only"]]
+  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
+  memory                  = "${var.memory_amount}"
+  prlctl                  = [["set", "{{.Name}}", "--bios-type", "efi-arm64" ]]
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "ws1"
 }
@@ -75,8 +75,8 @@ source "parallels-iso" "ws2" {
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
   # Hint to fix the problem of "initramfs unpacking failed" error
-  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"]]
+  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
+  memory                  = "${var.memory_amount}"
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "ws2"
 }
@@ -101,8 +101,8 @@ source "parallels-iso" "ws3" {
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
   # Hint to fix the problem of "initramfs unpacking failed" error
-  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"]]
+  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
+  memory                  = "${var.memory_amount}"
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "ws3"
 }
@@ -127,8 +127,8 @@ source "parallels-iso" "db" {
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
   # Hint to fix the problem of "initramfs unpacking failed" error
-  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed
-  prlctl                  = [["set", "{{.Name}}", "--memsize", "${var.memory_amount}"]]
+  # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
+  memory                  = "${var.memory_amount}"
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "db"
 }
