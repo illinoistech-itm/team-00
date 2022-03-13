@@ -4,7 +4,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 source "parallels-iso" "lb" {
   # https://github.com/chef/bento/blob/main/packer_templates/ubuntu/ubuntu-20.04-arm64.json
   #boot_command          = ["<esc>", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
-  boot_command            = [ "<tab><tab><tab><tab><tab><c><wait><bs><bs>","linux /casper/vmlinuz --- autoinstall ds=\"nocloud-net;seedfrom=http://{{.HTTPIP}}:{{.HTTPPort}}/\"<enter><wait>","initrd /casper/initrd<enter><wait>","boot<enter>"]
+  boot_command          = ["<esc>", "linux /casper/vmlinuz"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
   boot_wait               = "5s"
   disk_size               = 15000
   parallels_tools_flavor  = "lin"
