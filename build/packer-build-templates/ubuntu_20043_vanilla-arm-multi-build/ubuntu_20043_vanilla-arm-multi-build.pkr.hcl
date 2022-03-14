@@ -4,7 +4,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 source "parallels-iso" "lb" {
   # https://github.com/chef/bento/blob/main/packer_templates/ubuntu/ubuntu-20.04-arm64.json
   boot_command          = ["<esc>", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
-  boot_wait               = "20s"
+  boot_wait               = "15s"
   disk_size               = 15000
   parallels_tools_flavor  = "lin"
   guest_os_type           = "ubuntu"
