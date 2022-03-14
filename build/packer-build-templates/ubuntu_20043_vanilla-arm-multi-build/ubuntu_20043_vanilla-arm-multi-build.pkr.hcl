@@ -23,7 +23,7 @@ source "parallels-iso" "lb" {
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
   memory                  = "${var.memory_amount}"
-#  prlctl                  = [["set", "{{.Name}}", "--bios-type", "efi64" ]]
+  prlctl                  = [["set", "{{.Name}}", "--bios-type", "efi64" ]]
   prlctl_version_file     = ".prlctl_version"
   vm_name                 = "lb"
 }
