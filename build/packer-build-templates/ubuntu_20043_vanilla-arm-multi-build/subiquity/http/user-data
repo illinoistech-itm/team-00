@@ -41,6 +41,7 @@ autoinstall:
     - "echo 'Defaults:vagrant !requiretty' > /target/etc/sudoers.d/vagrant"
     - "echo 'vagrant ALL=(ALL) NOPASSWD: ALL' >> /target/etc/sudoers.d/vagrant"
     - "chmod 440 /target/etc/sudoers.d/vagrant"
+    - uname -a
     - sudo apt-mark hold 5.4.0-91-generic
     - sudo systemctl start ssh
 
