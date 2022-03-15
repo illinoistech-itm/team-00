@@ -125,6 +125,7 @@ source "parallels-iso" "db" {
   ssh_wait_timeout        = "1800s"
   ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
+  ssh_handshake_attempts  = 30
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
   # Hint to fix the problem of "initramfs unpacking failed" error
