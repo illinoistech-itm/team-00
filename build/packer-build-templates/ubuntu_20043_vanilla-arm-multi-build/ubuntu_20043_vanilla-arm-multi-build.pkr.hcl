@@ -3,8 +3,8 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
 source "parallels-iso" "lb" {
   # https://github.com/chef/bento/blob/main/packer_templates/ubuntu/ubuntu-20.04-arm64.json
-  #boot_command          = ["<esc>", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
-  boot_command          = ["<esc>", "c", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
+  boot_command          = ["<esc>", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
+  #boot_command          = ["<esc>", "c", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
   boot_wait               = "5s"
   disk_size               = 15000
   parallels_tools_flavor  = "lin"
@@ -13,8 +13,8 @@ source "parallels-iso" "lb" {
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  iso_checksum            = "sha256:6b60e12a344212855c9658acfe8593f37cd066ea7f2d32f0254a8478cd23c2e5"
-  iso_urls                = ["https://cdimage.ubuntu.com/releases/21.04/release/ubuntu-21.04-live-server-arm64.iso"]  
+  iso_checksum            = "sha256:fef8bc204d2b09b579b9d40dfd8c5a084f8084a9bffafe8a0f39a0e53606312d"
+  iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04.4/release/ubuntu-20.04.4-live-server-arm64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
   ssh_password            = "${var.SSHPW}"
