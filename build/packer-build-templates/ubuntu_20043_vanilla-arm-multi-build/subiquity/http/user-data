@@ -14,7 +14,6 @@ autoinstall:
   # using a late-command.
     - sudo systemctl stop ssh
     - uname -a
-    #- sudo apt-mark hold 5.4.0-91-generic
   storage:
     layout:
       name: direct
