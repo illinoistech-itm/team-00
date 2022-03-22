@@ -6,7 +6,6 @@ source "virtualbox-iso" "lb" {
   boot_wait               = "5s"
   disk_size               = 15000
   guest_additions_mode    = "disable"
-  #guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
   guest_os_type           = "Ubuntu_64"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
@@ -19,7 +18,6 @@ source "virtualbox-iso" "lb" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   vboxmanage              = [["modifyvm", "{{ .Name }}", "--memory", "${var.memory_amount}"]]
-  #virtualbox_version_file = ".vbox_version"
   vm_name                 = "lb"
   headless                = "${var.headless_build}"
 }
@@ -29,7 +27,6 @@ source "virtualbox-iso" "ws1" {
   boot_wait               = "5s"
   disk_size               = 15000
   guest_additions_mode    = "disable"
-  #guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
   guest_os_type           = "Ubuntu_64"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
@@ -41,7 +38,6 @@ source "virtualbox-iso" "ws1" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   vboxmanage              = [["modifyvm", "{{ .Name }}", "--memory", "${var.memory_amount}"]]
-  #virtualbox_version_file = ".vbox_version"
   vm_name                 = "ws1"
   headless                = "${var.headless_build}"
 }
@@ -51,7 +47,6 @@ source "virtualbox-iso" "ws2" {
   boot_wait               = "5s"
   disk_size               = 15000
   guest_additions_mode    = "disable"
-  #guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
   guest_os_type           = "Ubuntu_64"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
@@ -63,7 +58,6 @@ source "virtualbox-iso" "ws2" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   vboxmanage              = [["modifyvm", "{{ .Name }}", "--memory", "${var.memory_amount}"]]
-  #virtualbox_version_file = ".vbox_version"
   vm_name                 = "ws2"
   headless                = "${var.headless_build}"
 }
@@ -73,7 +67,6 @@ source "virtualbox-iso" "ws3" {
   boot_wait               = "5s"
   disk_size               = 15000
   guest_additions_mode    = "disable"
-  #guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
   guest_os_type           = "Ubuntu_64"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
@@ -86,7 +79,6 @@ source "virtualbox-iso" "ws3" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   vboxmanage              = [["modifyvm", "{{ .Name }}", "--memory", "${var.memory_amount}"]]
-  #virtualbox_version_file = ".vbox_version"
   vm_name                 = "ws3"
   headless                = "${var.headless_build}"
 }
@@ -96,7 +88,6 @@ source "virtualbox-iso" "db" {
   boot_wait               = "5s"
   disk_size               = 15000
   guest_additions_mode    = "disable"  
-  #guest_additions_path    = "VBoxGuestAdditions_{{ .Version }}.iso"
   guest_os_type           = "Ubuntu_64"
   http_directory          = "subiquity/http"
   http_port_max           = 9200
@@ -108,7 +99,6 @@ source "virtualbox-iso" "db" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   vboxmanage              = [["modifyvm", "{{ .Name }}", "--memory", "${var.memory_amount}"]]
-  #virtualbox_version_file = ".vbox_version"
   vm_name                 = "db"
   headless                = "${var.headless_build}"
 }
