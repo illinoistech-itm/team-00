@@ -45,11 +45,6 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 #################################################################################
-# Create Self-signed cert request and key
-#################################################################################
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048  -keyout /etc/ssl/private/expressjs-selfsigned.key -out /etc/ssl/certs/expressjs-selfsigned.crt -subj "/C=US/ST=IL/L=Chicago/O=IIT/OU=SAT/CN=class.edu"
-
-#################################################################################
 # Change the value of XX to be your team GitHub Repo
 # Otherwise your clone operation will fail
 # The command: su - vagrant -c switches from root to the user vagrant to execute 
