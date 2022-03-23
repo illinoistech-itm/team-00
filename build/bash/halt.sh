@@ -12,10 +12,10 @@ for DIRECTORY in ${DIRECTORIES[@]}
 do
     echo "Entering directory: $DIRECTORY"
     cd $DIRECTORY
-    # Start each virtual machine
-    echo "Starting vagrant box: $DIRECTORY"
+    # Halting each virtual machine
+    echo "Halting vagrant box: $DIRECTORY"
     vagrant halt
-    echo "Finished removing all previous Vagrant elements of your application"
+    echo "Finished stopping your Vagrant Box"
     # Resetting location up one levels
     cd ../
 done
