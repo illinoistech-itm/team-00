@@ -18,6 +18,22 @@ echo "192.168.56.103     ws2   ws2.class.edu"   | sudo tee -a /etc/hosts
 echo "192.168.56.104     ws3   ws3.class.edu"   | sudo tee -a /etc/hosts
 echo "192.168.56.105     db    db.class.edu"    | sudo tee -a /etc/hosts
 
+#################################################################################
+# Code to use a decision tree to determine the ws IP and changing the hostname 
+# accordingly
+#################################################################################
+IP=$(hostname -I | awk '{print $2}')
+if [ $IP == '192.168.56.102' ]
+    then
+        sudo hostnamectl set-hostname ws1
+elif [ $IP == '192.168.56.103' ]
+    then
+        sudo hostnamectl set-hostname ws2
+elif [ $IP == '192.168.56.104' ]
+    then
+        sudo hostnamectl set-hostname ws3
+fi
+
 ###################################################
 # Example how to install NodeJS
 ###################################################

@@ -21,7 +21,7 @@ echo "192.168.56.105     db    db.class.edu"    | sudo tee -a /etc/hosts
 #################################################################################
 # Set hostname
 #################################################################################
-sudo hostnamectl set-hostname lb
+sudo hostnamectl set-hostname db
 
 #################################################################################
 # Change the value of XX to be your team GitHub Repo
@@ -31,6 +31,15 @@ sudo hostnamectl set-hostname lb
 ##################################################################################
 su - vagrant -c "git clone git@github.com:illinoistech-itm/team-00.git"
 
-# Enable http in the firewall
-sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent
+#################################################################################
+# Linux systemd Firewall - firewalld https://firewalld.org/
+# Remember to open proper firewall ports
+#################################################################################
+# Open firewall port for port 3306/tcp
+sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent 
+# Open firewall port to allow only connections from 192.168.56.0/24
+sudo firewall-cmd --zone=public --add-source=192.168.56.0/24 --permanent
+# Reload changes to firewall
 sudo firewall-cmd --reload
+
+echo $USERPASS >> /home/vagrant/uservar.txt

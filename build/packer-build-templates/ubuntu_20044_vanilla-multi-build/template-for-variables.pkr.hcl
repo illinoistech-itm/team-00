@@ -24,3 +24,9 @@ variable "build_artifact_location" {
   # The teamXX can be replaced by your team number
   default = "/datadisk2/boxes/teamXX-"
 }
+
+variable "user-db-pass" {
+  type = string
+  sensitive = true
+  default= ""
+}

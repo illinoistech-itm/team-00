@@ -134,6 +134,7 @@ build {
   }
 
     provisioner "shell" {
+    environment_vars = ["USERPASS=${var.user-db-pass}"]
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     script          = "../scripts/post_install_ubuntu_db.sh"
     only            = ["virtualbox-iso.db"]
