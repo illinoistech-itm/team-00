@@ -136,8 +136,16 @@ build {
     only            = ["virtualbox-iso.ws1","virtualbox-iso.ws2","virtualbox-iso.ws3"]
   }
 
+#########################################################################################
+# Environment Vars are read from the variables.pkr.hcl file and are a way to pass user 
+# variables -- things such as passwords that need to be set at run time and passed into 
+# an application -- but would be dangerous to hardcode.
+#########################################################################################
+
     provisioner "shell" {
-    environment_vars = ["USERPASS=${var.user-db-pass}"]
+    environment_vars = ["USERPASS=${var.non-root-user-for-database-password}",
+                        "ACCESSFROMIP=${var.restrict-firewall-access-to-this-ip-range}",
+                        "USERNAME=${var.non-root-user-for-database-username}"]
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     script          = "../scripts/post_install_ubuntu_db.sh"
     only            = ["virtualbox-iso.db"]
