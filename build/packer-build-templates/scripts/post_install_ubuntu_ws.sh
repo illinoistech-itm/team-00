@@ -23,6 +23,7 @@ echo "192.168.56.105     db    db.class.edu"    | sudo tee -a /etc/hosts
 # accordingly
 #################################################################################
 IP=$(hostname -I | awk '{print $2}')
+
 if [ $IP == '192.168.56.102' ]
     then
         sudo hostnamectl set-hostname ws1
