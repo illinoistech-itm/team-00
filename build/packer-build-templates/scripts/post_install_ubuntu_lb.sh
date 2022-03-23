@@ -52,6 +52,6 @@ sudo systemctl reload nginx
 sudo systemctl restart nginx
 
 # Enable https in the firewall
-sudo firewall-cmd --zone=public --add-service=https --permanent
+sudo firewall-cmd --zone=public --add-service=http --permanent
 #sudo firewall-cmd --zone=public --add-service=https --permanent
 sudo firewall-cmd --reload
