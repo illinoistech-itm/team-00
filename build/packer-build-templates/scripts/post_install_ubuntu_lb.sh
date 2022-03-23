@@ -46,7 +46,7 @@ sudo cp -v /home/vagrant/team-00/code/nginx/default /etc/nginx/sites-enabled
 sudo cp -v /home/vagrant/team-00/code/nginx/nginx.conf /etc/nginx/
 
 # Restart the Nginx service so it actualizes the updates just made
-
+sudo nginx -t
 sudo systemctl daemon-reload
 sudo systemctl reload nginx
 sudo systemctl restart nginx
