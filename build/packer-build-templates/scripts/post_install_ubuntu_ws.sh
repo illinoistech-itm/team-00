@@ -73,6 +73,7 @@ pm2 save
 sudo chown vagrant:vagrant /home/vagrant/.pm2/rpc.sock /home/vagrant/.pm2/pub.sock
 
 # Enable http in the firewall
-sudo firewall-cmd --zone=public --add-service=https --permanent
+sudo firewall-cmd --zone=public --add-service=http --permanent
+#sudo firewall-cmd --zone=public --add-service=https --permanent
 sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
 sudo firewall-cmd --reload
