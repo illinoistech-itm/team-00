@@ -43,7 +43,8 @@ server {
                 try_files $uri $uri/ =404;
 
 				# Added by JRH 
-        		proxy_pass https://backend;
+        		#proxy_pass https://backend;
+                proxy_pass http://backend;
         }
 
 }
