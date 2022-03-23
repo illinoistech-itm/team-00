@@ -53,7 +53,8 @@ Vagrant.configure("2") do |config|
      config.vm.provider "virtualbox" do |vb|
     #   # Display the VirtualBox GUI when booting the machine
     #   vb.gui = true
-    #
+    # https://www.vagrantup.com/docs/providers/virtualbox/configuration#checking-for-guest-additions
+    vb.check_guest_additions = false
     #   # Customize the amount of memory on the VM:
       vb.memory = "1024"
      end
