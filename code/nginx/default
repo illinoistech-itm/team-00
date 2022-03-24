@@ -47,7 +47,10 @@ server {
         		#proxy_pass https://backend;
                 proxy_pass http://backend;
         }
-
+        # https://serverfault.com/questions/932628/how-to-handle-relative-urls-correctly-with-a-nginx-reverse-proxy
+        location /static/ {
+             proxy_pass http://backend/static/;
+        }
 }
 # Removed Listening on port 80
 
