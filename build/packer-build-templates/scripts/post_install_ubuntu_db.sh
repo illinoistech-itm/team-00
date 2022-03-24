@@ -42,19 +42,22 @@ sudo firewall-cmd --zone=public --add-source=192.168.56.0/24 --permanent
 # Reload changes to firewall
 sudo firewall-cmd --reload
 
-# Changing the mysql bind address with a script to listen for external connections
+#################################################################################
+# Changing the mysql bind address with a script to listen for external 
+# connections
+# This is important because mysql by default only listens on localhost and needs
+# to be configured to listen for external connections
 # https://serverfault.com/questions/584607/changing-the-mysql-bind-address-within-a-script
-# https://stackoverflow.com/questions/23670282/bind-address-missing-in-my-cnf-in-mysql-centos
 # https://en.wikipedia.org/wiki/Sed
-# https://devopscube.com/setup-mysql-master-slave-replication/
-# Don't leave off the final "/" in a sed expression--they need to be closed
+#################################################################################
+
 # If using mysql instead of MariaDB the path to the cnf file is /etc/mysql/mysql.conf.d/mysql.cnf
 # sudo sed -i "s/.*bind-address.*/#bind-address = $(hostname -I | awk '{print $2}')/" /etc/mysql/mysql.conf.d/mysql.cnf
 sudo sed -i "s/.*bind-address.*/bind-address = $(hostname -I | awk '{print $2}')/" /etc/mysql/mariadb.conf.d/50-server.cnf
 
 #################################################################################
 # To execute .sql files to create tables, databases, and insert records
-# Modern versions of mariadb and mysql don't have a root password for the root 
+# modern versions of mariadb and mysql don't have a root password for the root 
 # user they control access via sudo permissions... which is great for security
 # and automation
 # These next 4 lines will create a simple database, a table, a non-root user
@@ -62,8 +65,9 @@ sudo sed -i "s/.*bind-address.*/bind-address = $(hostname -I | awk '{print $2}')
 #################################################################################
 
 #################################################################################
-# Using sed to replace placeholder variables in the scripts in the scripts 
+# Using sed to replace placeholder variables in the code/db-samples/*.sql files
 # with the USER variables passed from PACKER
+# There isn't a cleaner way to do this but at least its verbose
 #################################################################################
 sed -i "s/\$ACCESSFROMIP/$ACCESSFROMIP/g" ./db-samples/*.sql
 sed -i "s/\$USERPASS/$USERPASS/g" ./db-samples/*.sql
