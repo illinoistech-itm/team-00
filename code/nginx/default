@@ -51,6 +51,14 @@ server {
         location /static/ {
              proxy_pass http://backend/static/;
         }
+        location /about/ {
+             proxy_pass http://backend/about/;
+        }
+        location /user/ {
+             proxy_pass http://backend/user/;
+        }
+        location /questions/ {
+             proxy_pass http://backend/questions/;
+        }
 }
-# Removed Listening on port 80
 
