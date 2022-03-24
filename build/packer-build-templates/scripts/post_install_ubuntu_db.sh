@@ -52,8 +52,9 @@ sudo firewall-cmd --reload
 #################################################################################
 
 # If using mysql instead of MariaDB the path to the cnf file is /etc/mysql/mysql.conf.d/mysql.cnf
-# sudo sed -i "s/.*bind-address.*/#bind-address = $(hostname -I | awk '{print $2}')/" /etc/mysql/mysql.conf.d/mysql.cnf
-sudo sed -i "s/.*bind-address.*/bind-address = $(hostname -I | awk '{print $2}')/" /etc/mysql/mariadb.conf.d/50-server.cnf
+# The command: $(cat /etc/hosts | grep db | awk '{ print $1 }') will retrieve the IP address of the db from the /etc/hosts file, a bit of a hack...
+# sudo sed -i "s/.*bind-address.*/#bind-address = $(cat /etc/hosts | grep db | awk '{ print $1 }')/" /etc/mysql/mysql.conf.d/mysql.cnf
+sudo sed -i "s/.*bind-address.*/bind-address = $(cat /etc/hosts | grep db | awk '{ print $1 }')/" /etc/mysql/mariadb.conf.d/50-server.cnf
 
 #################################################################################
 # To execute .sql files to create tables, databases, and insert records
