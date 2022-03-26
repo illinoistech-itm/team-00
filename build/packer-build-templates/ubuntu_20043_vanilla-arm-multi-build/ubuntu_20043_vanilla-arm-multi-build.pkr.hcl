@@ -1,15 +1,6 @@
 
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
-packer {
-  required_plugins {
-    parallels = {
-      version = ">= 1.0.0"
-      source  = "github.com/hashicorp/parallels"
-    }
-  }
-}
-
 source "parallels-iso" "lb" {
   # https://github.com/chef/bento/blob/main/packer_templates/ubuntu/ubuntu-20.04-arm64.json
   boot_command          = ["<esc>", "linux /casper/vmlinuz"," quiet"," autoinstall"," ds='nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'","<enter>","initrd /casper/initrd <enter>","boot <enter>"]
