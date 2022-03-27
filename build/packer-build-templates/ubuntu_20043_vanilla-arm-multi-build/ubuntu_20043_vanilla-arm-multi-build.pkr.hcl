@@ -5,7 +5,7 @@ packer {
   required_plugins {
     parallels = {
       version = ">= 1.0.0"
-      source  = "github.com/illinoistech-itm/parallels"
+      source  = "github.com/illinoistech-itm/jhajek"
     }
   }
 }
