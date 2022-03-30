@@ -51,9 +51,8 @@ source "parallels-iso" "ws1" {
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  iso_checksum            = "sha256:6b60e12a344212855c9658acfe8593f37cd066ea7f2d32f0254a8478cd23c2e5"
-  iso_urls                = ["https://cdimage.ubuntu.com/releases/21.04/release/ubuntu-21.04-live-server-arm64.iso"] 
-  shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
+  iso_checksum            = "sha256:fef8bc204d2b09b579b9d40dfd8c5a084f8084a9bffafe8a0f39a0e53606312d"
+  iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04.4/release/ubuntu-20.04.4-live-server-arm64.iso"]    shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
   ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
@@ -78,8 +77,8 @@ source "parallels-iso" "ws2" {
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  iso_checksum            = "sha256:6b60e12a344212855c9658acfe8593f37cd066ea7f2d32f0254a8478cd23c2e5"
-  iso_urls                = ["https://cdimage.ubuntu.com/releases/21.04/release/ubuntu-21.04-live-server-arm64.iso"]
+  iso_checksum            = "sha256:fef8bc204d2b09b579b9d40dfd8c5a084f8084a9bffafe8a0f39a0e53606312d"
+  iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04.4/release/ubuntu-20.04.4-live-server-arm64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
   ssh_password            = "${var.SSHPW}"
@@ -104,8 +103,8 @@ source "parallels-iso" "ws3" {
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  iso_checksum            = "sha256:6b60e12a344212855c9658acfe8593f37cd066ea7f2d32f0254a8478cd23c2e5"
-  iso_urls                = ["https://cdimage.ubuntu.com/releases/21.04/release/ubuntu-21.04-live-server-arm64.iso"] 
+  iso_checksum            = "sha256:fef8bc204d2b09b579b9d40dfd8c5a084f8084a9bffafe8a0f39a0e53606312d"
+  iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04.4/release/ubuntu-20.04.4-live-server-arm64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
   ssh_password            = "${var.SSHPW}"
@@ -130,8 +129,8 @@ source "parallels-iso" "db" {
   http_directory          = "subiquity/http"
   http_port_max           = 9200
   http_port_min           = 9001
-  iso_checksum            = "sha256:6b60e12a344212855c9658acfe8593f37cd066ea7f2d32f0254a8478cd23c2e5"
-  iso_urls                = ["https://cdimage.ubuntu.com/releases/21.04/release/ubuntu-21.04-live-server-arm64.iso"] 
+  iso_checksum            = "sha256:fef8bc204d2b09b579b9d40dfd8c5a084f8084a9bffafe8a0f39a0e53606312d"
+  iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04.4/release/ubuntu-20.04.4-live-server-arm64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
   ssh_password            = "${var.SSHPW}"
