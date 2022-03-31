@@ -6,7 +6,7 @@
 DIRECTORIES=( lb ws1 ws2 ws3 db )
 # Setting initial directory location
 echo "Setting initial directory location: "
-if [ $(uname -m) ]
+if [ $(uname -m) == "arm64" ]
 then 
 cd ../m1-project
 else
