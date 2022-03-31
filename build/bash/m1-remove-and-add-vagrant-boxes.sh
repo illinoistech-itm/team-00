@@ -52,7 +52,7 @@ do
     # Running the command to add the vagrant boxes, you can put a URL and Vagrant 
     # will retrieve the box for you in addition to adding the box
     echo "Vagrant is adding the box: $DIRECTORY-arm.box"
-    vagrant box add $DIRECTORY-arm.box --name $DIRECTORY
+    vagrant box add --provider parallels $DIRECTORY-arm.box --name $DIRECTORY
 done
 # Show all the Vagrant boxes added properly
 vagrant box list 
