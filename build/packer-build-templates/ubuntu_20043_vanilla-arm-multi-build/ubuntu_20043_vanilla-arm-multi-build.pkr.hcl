@@ -180,6 +180,9 @@ build {
   }
 
     provisioner "shell" {
+    environment_vars = ["USERPASS=${var.non-root-user-for-database-password}",
+                        "ACCESSFROMIP=${var.restrict-firewall-access-to-this-ip-range}",
+                        "USERNAME=${var.non-root-user-for-database-username}"]
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     script          = "../scripts/post_install_ubuntu_db.sh"
     only            = ["parallels-iso.db"]
