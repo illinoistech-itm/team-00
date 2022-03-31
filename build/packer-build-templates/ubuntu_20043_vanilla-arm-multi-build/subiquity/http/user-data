@@ -19,6 +19,7 @@ autoinstall:
       name: direct
   packages:
     - ubuntu-server
+    - qemu-guest-agent
     - bc
     - curl
     - wget
