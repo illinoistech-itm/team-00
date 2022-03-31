@@ -27,11 +27,11 @@ source "parallels-iso" "lb" {
   iso_urls                = ["https://cdimage.ubuntu.com/releases/20.04.4/release/ubuntu-20.04.4-live-server-arm64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
   ssh_wait_timeout        = "1800s"
-  #ssh_password            = "${var.SSHPW}"
-  ssh_password            = "vagrant"
+  ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
+  ssh_handshake_attempts  = "300"
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
   memory                  = "${var.memory_amount}"
@@ -87,6 +87,7 @@ source "parallels-iso" "ws2" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
+  ssh_handshake_attempts  = "300"  
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
   memory                  = "${var.memory_amount}"
@@ -113,6 +114,7 @@ source "parallels-iso" "ws3" {
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
+  ssh_handshake_attempts  = "300"  
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
   memory                  = "${var.memory_amount}"
@@ -140,6 +142,7 @@ source "parallels-iso" "db" {
   ssh_handshake_attempts  = 30
   ssh_username            = "vagrant"
   parallels_tools_mode    = "upload"
+  ssh_handshake_attempts  = "300"  
   # Hint to fix the problem of "initramfs unpacking failed" error
   # https://askubuntu.com/questions/1269855/usb-installer-initramfs-unpacking-failed-decoding-failed]
   memory                  = "${var.memory_amount}"
