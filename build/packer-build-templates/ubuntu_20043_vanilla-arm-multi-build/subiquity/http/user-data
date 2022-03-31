@@ -34,7 +34,7 @@ autoinstall:
           dhcp4: true
           dhcp-identifier: mac
   ssh:
-    allow-pw: false
+    allow-pw: true
     install-server: true
     authorized-keys:
       - 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEkyghHJ3hmQCLEYd76OKvQOnptwQO0HUiOWw041kpb1 jeremy@SDMM142.local'  # RSA public key goes here for automatic insertion
