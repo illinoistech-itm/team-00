@@ -48,7 +48,7 @@ sudo cp -v /home/vagrant/team-00/code/nginx/default /etc/nginx/sites-enabled
 sudo cp -v /home/vagrant/team-00/code/nginx/nginx.conf /etc/nginx/
 
 # Check nginx syntax with -t
-sudo nginx -t
+#sudo nginx -t
 sudo systemctl enable nginx
 
 # Enable https in the firewall
