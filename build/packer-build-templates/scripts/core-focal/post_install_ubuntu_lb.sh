@@ -8,11 +8,6 @@ set -v
 
 sudo apt-get install -y nginx firewalld
 
-##################################################
-# Set team number here, with leading Zero 
-##################################################
-NUMBER=""
-
 #################################################################################
 # Use an IF statement to determine if we are building for Proxmox Cloud server
 # 192.168.172.x or for VirtualBox 192.168.56.x

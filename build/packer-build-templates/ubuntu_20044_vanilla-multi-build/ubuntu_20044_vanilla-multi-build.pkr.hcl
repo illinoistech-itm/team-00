@@ -401,12 +401,14 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    environment_vars = ["NUMBER=${var.TEAMNUMBER}"]
     script          = "../scripts/core-focal/post_install_ubuntu_lb.sh"
     only            = ["virtualbox-iso.lb"]
   }
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    environment_vars = ["NUMBER=${var.TEAMNUMBER}"]
     script          = "../scripts/core-focal/post_install_ubuntu_ws.sh"
     only            = ["virtualbox-iso.ws1","virtualbox-iso.ws2","virtualbox-iso.ws3"]
   }
@@ -420,7 +422,8 @@ build {
     provisioner "shell" {
     environment_vars = ["USERPASS=${var.non-root-user-for-database-password}",
                         "ACCESSFROMIP=${var.restrict-firewall-access-to-this-ip-range-virtualbox}",
-                        "USERNAME=${var.non-root-user-for-database-username}"]
+                        "USERNAME=${var.non-root-user-for-database-username}",
+                        "NUMBER=${var.TEAMNUMBER}"]
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     script          = "../scripts/core-focal/post_install_ubuntu_db.sh"
     only            = ["virtualbox-iso.db"]
@@ -432,6 +435,7 @@ build {
   
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    environment_vars = ["NUMBER=${var.TEAMNUMBER}"]
     script          = "../scripts/core-focal/post_install_ubuntu_lb.sh"
     only            = ["proxmox-iso.proxmox-focal-lb"]
   }
@@ -442,6 +446,7 @@ build {
   
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+    environment_vars = ["NUMBER=${var.TEAMNUMBER}"]
     script          = "../scripts/core-focal/post_install_ubuntu_ws.sh"
     only            = ["proxmox-iso.proxmox-focal-ws"]
   }
@@ -454,7 +459,8 @@ build {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     environment_vars = ["USERPASS=${var.non-root-user-for-database-password}",
                         "ACCESSFROMIP=${var.restrict-firewall-access-to-this-ip-range-proxmox}",
-                        "USERNAME=${var.non-root-user-for-database-username}"]
+                        "USERNAME=${var.non-root-user-for-database-username}",
+                        "NUMBER=${var.TEAMNUMBER}"]
     script          = "../scripts/core-focal/post_install_ubuntu_db.sh"
     only            = ["proxmox-iso.proxmox-focal-db"]
   }

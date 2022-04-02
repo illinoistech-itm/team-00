@@ -127,3 +127,9 @@ variable "DBNAME" {
   type    = string
   default = ""
 }
+
+# Team Number with leading Zeros
+variable "TEAMNUMBER" {
+  type    = string
+  default = ""
+}
