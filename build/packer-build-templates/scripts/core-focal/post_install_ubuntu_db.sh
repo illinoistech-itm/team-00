@@ -18,7 +18,7 @@ if [ $IP != 172 ]
 then
   echo "Building for Proxmox Cloud Environment -- we have Dynamic DNS, no need for /etc/hosts files"
 else
-  echo "192.168.56.101     team-$NUMBER-db-vm0    team-$NUMBER-lb-vm0.service.consul"    | sudo tee -a /etc/hosts
+  echo "192.168.56.101     team-$NUMBER-lb-vm0    team-$NUMBER-lb-vm0.service.consul"    | sudo tee -a /etc/hosts
   echo "192.168.56.102     team-$NUMBER-ws-vm0   team-$NUMBER-ws-vm0.service.consul"   | sudo tee -a /etc/hosts
   echo "192.168.56.103     team-$NUMBER-ws-vm1   team-$NUMBER-ws-vm1.service.consul"   | sudo tee -a /etc/hosts
   echo "192.168.56.104     team-$NUMBER-ws-vm2   team-$NUMBER-ws-vm2.service.consul"   | sudo tee -a /etc/hosts
