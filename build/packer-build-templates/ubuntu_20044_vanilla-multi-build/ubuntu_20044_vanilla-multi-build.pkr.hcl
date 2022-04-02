@@ -13,7 +13,7 @@ source "virtualbox-iso" "lb" {
   iso_checksum            = "sha256:28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
   iso_urls                = ["http://mirrors.kernel.org/ubuntu-releases/20.04.4/ubuntu-20.04.4-live-server-amd64.iso"]
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
-  ssh_wait_timeout        = "1800s"
+  ssh_wait_timeout        = "1200s"
   ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
@@ -34,7 +34,7 @@ source "virtualbox-iso" "ws1" {
   iso_checksum            = "sha256:28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
   iso_urls                = ["http://mirrors.kernel.org/ubuntu-releases/20.04.4/ubuntu-20.04.4-live-server-amd64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
-  ssh_wait_timeout        = "1800s"
+  ssh_wait_timeout        = "1200s"
   ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
@@ -55,7 +55,7 @@ source "virtualbox-iso" "ws2" {
   iso_checksum            = "sha256:28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
   iso_urls                = ["http://mirrors.kernel.org/ubuntu-releases/20.04.4/ubuntu-20.04.4-live-server-amd64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
-  ssh_wait_timeout        = "1800s"
+  ssh_wait_timeout        = "1200s"
   ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
@@ -76,7 +76,7 @@ source "virtualbox-iso" "ws3" {
   iso_checksum            = "sha256:28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
   iso_urls                = ["http://mirrors.kernel.org/ubuntu-releases/20.04.4/ubuntu-20.04.4-live-server-amd64.iso"]
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
-  ssh_wait_timeout        = "1800s"
+  ssh_wait_timeout        = "1200s"
   ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
@@ -97,7 +97,7 @@ source "virtualbox-iso" "db" {
   iso_checksum            = "sha256:28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
   iso_urls                = ["http://mirrors.kernel.org/ubuntu-releases/20.04.4/ubuntu-20.04.4-live-server-amd64.iso"]  
   shutdown_command        = "echo 'vagrant' | sudo -S shutdown -P now"
-  ssh_wait_timeout        = "1800s"
+  ssh_wait_timeout        = "1200s"
   ssh_password            = "${var.SSHPW}"
   ssh_timeout             = "20m"
   ssh_username            = "vagrant"
@@ -174,7 +174,7 @@ source "proxmox-iso" "proxmox-focal-lb" {
   ssh_password             = "vagrant"
   ssh_username             = "${var.SSHPW}"
   ssh_timeout              = "20m"
-  ssh_wait_timeout         = "1800s"
+  ssh_wait_timeout         = "1200s"
   template_description     = "A Packer template to create an Nginx LoadBalancer"
   vm_name                  = "${var.LBNAME}"
 }
@@ -226,7 +226,7 @@ source "proxmox-iso" "proxmox-focal-ws" {
   ssh_password             = "vagrant"
   ssh_username             = "${var.SSHPW}"
   ssh_timeout              = "20m"
-  ssh_wait_timeout         = "1800s"
+  ssh_wait_timeout         = "1200s"
   template_description     = "A Packer build script to create a Proxmox Template for our Web Server machine"
   vm_name                  = "${var.WSNAME}"
 }
@@ -278,7 +278,7 @@ source "proxmox-iso" "proxmox-focal-db" {
   ssh_password             = "vagrant"
   ssh_username             = "${var.SSHPW}"
   ssh_timeout              = "20m"
-  ssh_wait_timeout         = "1800s"
+  ssh_wait_timeout         = "1200s"
   template_description     = "A Packer template to create a Focal database"
   vm_name                  = "${var.DBNAME}"
 }
