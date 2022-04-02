@@ -3,7 +3,7 @@
 # vagrant up command
 #########################################################################################
 # Declare and array of all the box names
-$directories='lb','ws1','ws2','ws3','db'
+$directories='db','ws1','ws2','ws3','lb'
 # Setting initial directory location
 Write-Host "Setting initial directory location: "
 Set-Location -Path ../project

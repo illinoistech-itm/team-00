@@ -3,7 +3,7 @@
 # vagrant up command
 #########################################################################################
 # Declare and array of all the box names
-DIRECTORIES=( lb ws1 ws2 ws3 db )
+DIRECTORIES=( db ws1 ws2 ws3 lb )
 # Setting initial directory location
 echo "Setting initial directory location: "
 if [ $(uname -m) == "arm64" ]
