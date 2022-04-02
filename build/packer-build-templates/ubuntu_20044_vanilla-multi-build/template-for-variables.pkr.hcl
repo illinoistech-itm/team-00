@@ -120,3 +120,4 @@ variable "WSNAME" {
 variable "DBNAME" {
   type    = string
   default = ""
+}
