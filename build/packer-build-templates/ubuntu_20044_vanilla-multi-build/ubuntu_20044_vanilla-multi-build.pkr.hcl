@@ -298,7 +298,7 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_2004_vagrant.sh"
+    script          = "../scripts/virtualbox/post_install_ubuntu_2004_vagrant.sh"
     only            = ["virtualbox-iso.ws1","virtualbox-iso.ws2","virtualbox-iso.ws3","virtualbox-iso.lb","virtualbox-iso.db"]
   }
 
@@ -317,7 +317,7 @@ build {
   ########################################################################################################################
 
   provisioner "file" {
-    source      = "../scripts/proxmox/core-focal/post_install_iptables-dns-adjustment.sh"
+    source      = "../scripts/proxmox/post_install_iptables-dns-adjustment.sh"
     destination = "/home/vagrant/"
     only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"] 
   }
@@ -341,7 +341,7 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    scripts         = ["../scripts/proxmox/core-focal/post_install_prxmx-firewall-configuration.sh"]
+    scripts         = ["../scripts/proxmox/post_install_prxmx-firewall-configuration.sh"]
     only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
   }
 
@@ -351,11 +351,11 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    scripts         = ["../scripts/proxmox/core-focal/post_install_prxmx_ubuntu_2004.sh",
-                       "../scripts/proxmox/core-focal/post_install_prxmx_start-cloud-init.sh", 
-                       "../scripts/proxmox/core-focal/post_install_prxmx-ssh-restrict-login.sh", 
-                       "../scripts/proxmox/core-focal/post_install_prxmx_install_hashicorp_consul.sh", 
-                       "../scripts/proxmox/core-focal/post_install_prxmx_update_dns_to_use_systemd_for_consul.sh"]
+    scripts         = ["../scripts/proxmox/post_install_prxmx_ubuntu_2004.sh",
+                       "../scripts/proxmox/post_install_prxmx_start-cloud-init.sh", 
+                       "../scripts/proxmox/post_install_prxmx-ssh-restrict-login.sh", 
+                       "../scripts/proxmox/post_install_prxmx_install_hashicorp_consul.sh", 
+                       "../scripts/proxmox/post_install_prxmx_update_dns_to_use_systemd_for_consul.sh"]
     only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
   }
 
@@ -367,7 +367,7 @@ build {
   
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    scripts         = ["../scripts/proxmox/core-focal/post_install_change_consul_bind_interface.sh"]
+    scripts         = ["../scripts/proxmox/post_install_change_consul_bind_interface.sh"]
     only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
   }
 
@@ -379,7 +379,7 @@ build {
   
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    scripts         = ["../scripts/proxmox/core-focal/post_install_update_dynamic_motd_message.sh"]
+    scripts         = ["../scripts/proxmox/post_install_update_dynamic_motd_message.sh"]
     only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
   }
   
@@ -390,7 +390,7 @@ build {
   
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    scripts         = ["../scripts/proxmox/core-focal/post_install_prxmx_ubuntu_install-collectd.sh"]
+    scripts         = ["../scripts/proxmox/post_install_prxmx_ubuntu_install-collectd.sh"]
     only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
   } 
 
@@ -401,13 +401,13 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_lb.sh"
+    script          = "../scripts/core-focal/post_install_ubuntu_lb.sh"
     only            = ["virtualbox-iso.lb"]
   }
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_ws.sh"
+    script          = "../scripts/core-focal/post_install_ubuntu_ws.sh"
     only            = ["virtualbox-iso.ws1","virtualbox-iso.ws2","virtualbox-iso.ws3"]
   }
 
@@ -422,7 +422,7 @@ build {
                         "ACCESSFROMIP=${var.restrict-firewall-access-to-this-ip-range}",
                         "USERNAME=${var.non-root-user-for-database-username}"]
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_db.sh"
+    script          = "../scripts/core-focal/post_install_ubuntu_db.sh"
     only            = ["virtualbox-iso.db"]
   }
 
@@ -432,7 +432,7 @@ build {
   
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_db.sh"
+    script          = "../scripts/core-focal/post_install_ubuntu_lb.sh"
     only            = ["proxmox-iso.proxmox-focal-lb"]
   }
 
@@ -442,7 +442,7 @@ build {
   
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
-    script          = "../scripts/post_install_ubuntu_db.sh"
+    script          = "../scripts/core-focal/post_install_ubuntu_ws.sh"
     only            = ["proxmox-iso.proxmox-focal-ws"]
   }
 
@@ -455,7 +455,7 @@ build {
     environment_vars = ["USERPASS=${var.non-root-user-for-database-password}",
                         "ACCESSFROMIP=${var.restrict-firewall-access-to-this-ip-range}",
                         "USERNAME=${var.non-root-user-for-database-username}"]
-    script          = "../scripts/post_install_ubuntu_db.sh"
+    script          = "../scripts/core-focal/post_install_ubuntu_db.sh"
     only            = ["proxmox-iso.proxmox-focal-db"]
   }
 
