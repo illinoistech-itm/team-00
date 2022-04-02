@@ -7,7 +7,7 @@ source "virtualbox-iso" "lb" {
   disk_size               = 15000
   guest_additions_mode    = "disable"
   guest_os_type           = "Ubuntu_64"
-  http_directory          = "subiquity/http"
+  http_directory          = "subiquity2/http"
   http_port_max           = 9200
   http_port_min           = 9001
   iso_checksum            = "sha256:28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
