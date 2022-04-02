@@ -49,7 +49,7 @@ variable "restrict-firewall-access-to-this-ip-range-proxmox" {
   default = ""
 }
 
-//  variables.pkr.hcl
+//  variables for PROXMOX Cloud Instances
 
 // For those variables that you don't provide a default for, you must
 // set them from the command line, a var-file, or the environment.

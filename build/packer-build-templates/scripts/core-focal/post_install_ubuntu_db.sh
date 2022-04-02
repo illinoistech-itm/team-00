@@ -45,7 +45,10 @@ cd team-00/code/
 # Open firewall port for port 3306/tcp
 sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent 
 # Open firewall port to allow only connections from 192.168.56.0/24
+# For VirtualBox
 sudo firewall-cmd --zone=public --add-source=192.168.56.0/24 --permanent
+# For Proxmox
+sudo firewall-cmd --zone=public --add-source=192.168.172.0/24 --permanent
 # Reload changes to firewall
 sudo firewall-cmd --reload
 
@@ -60,8 +63,8 @@ sudo firewall-cmd --reload
 
 # If using mysql instead of MariaDB the path to the cnf file is /etc/mysql/mysql.conf.d/mysql.cnf
 # The command: $(cat /etc/hosts | grep db | awk '{ print $1 }') will retrieve the IP address of the db from the /etc/hosts file, a bit of a hack...
-# sudo sed -i "s/.*bind-address.*/#bind-address = $(cat /etc/hosts | grep db | awk '{ print $1 }')/" /etc/mysql/mysql.conf.d/mysql.cnf
-sudo sed -i "s/.*bind-address.*/bind-address = $(cat /etc/hosts | grep db | awk '{ print $1 }')/" /etc/mysql/mariadb.conf.d/50-server.cnf
+# sudo sed -i "s/.*bind-address.*/#bind-address = $(cat /etc/hosts | grep team-$NUMBER-db-vm0 | awk '{ print $1 }')/" /etc/mysql/mysql.conf.d/mysql.cnf
+sudo sed -i "s/.*bind-address.*/bind-address = $(cat /etc/hosts | grep team-$NUMBER-db-vm0 | awk '{ print $1 }')/" /etc/mysql/mariadb.conf.d/50-server.cnf
 
 #################################################################################
 # To execute .sql files to create tables, databases, and insert records
