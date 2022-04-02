@@ -37,7 +37,13 @@ variable "non-root-user-for-database-username" {
   default = ""
 }
 
-variable "restrict-firewall-access-to-this-ip-range" {
+variable "restrict-firewall-access-to-this-ip-range-virtualbox" {
+  type = string
+  sensitive = true
+  default = ""
+}
+
+variable "restrict-firewall-access-to-this-ip-range-proxmox" {
   type = string
   sensitive = true
   default = ""
