@@ -8,20 +8,27 @@ set -v
 
 sudo apt-get install -y nginx firewalld
 
-#################################################################################
-# Update /etc/hosts file
-#################################################################################
-
-echo "192.168.56.101     lb    lb.class.edu"    | sudo tee -a /etc/hosts
-echo "192.168.56.102     ws1   ws1.class.edu"   | sudo tee -a /etc/hosts
-echo "192.168.56.103     ws2   ws2.class.edu"   | sudo tee -a /etc/hosts
-echo "192.168.56.104     ws3   ws3.class.edu"   | sudo tee -a /etc/hosts
-echo "192.168.56.105     db    db.class.edu"    | sudo tee -a /etc/hosts
+##################################################
+# Set team number here, with leading Zero 
+##################################################
+NUMBER=""
 
 #################################################################################
-# Set hostname
+# Use an IF statement to determine if we are building for Proxmox Cloud server
+# 192.168.172.x or for VirtualBox 192.168.56.x
 #################################################################################
-sudo hostnamectl set-hostname lb
+IP=$(hostname -I | awk '{print $2}' | cut -d . -f3)
+
+if [ $IP != 172 ]
+then
+  echo "Building for Proxmox Cloud Environment -- we have Dynamic DNS, no need for /etc/hosts files"
+else
+  echo "192.168.56.101     team-$NUMBER-db-vm0    team-$NUMBER-lb-vm0.service.consul"    | sudo tee -a /etc/hosts
+  echo "192.168.56.102     team-$NUMBER-ws-vm0   team-$NUMBER-ws-vm0.service.consul"   | sudo tee -a /etc/hosts
+  echo "192.168.56.103     team-$NUMBER-ws-vm1   team-$NUMBER-ws-vm1.service.consul"   | sudo tee -a /etc/hosts
+  echo "192.168.56.104     team-$NUMBER-ws-vm2   team-$NUMBER-ws-vm2.service.consul"   | sudo tee -a /etc/hosts
+  echo "192.168.56.105     team-$NUMBER-db-vm0    team-$NUMBER-db-vm0.service.consul"    | sudo tee -a /etc/hosts
+fi
 
 #################################################################################
 # Change the value of XX to be your team GitHub Repo
