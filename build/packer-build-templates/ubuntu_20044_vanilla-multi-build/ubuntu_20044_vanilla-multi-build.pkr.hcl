@@ -131,7 +131,7 @@ packer {
 # Build for Ubuntu Focal 20.04 Nginx LoadBalancer template
 # https://www.packer.io/docs/builders/proxmox/iso
 #################################################################
-source "proxmox-iso" "proxmox-focal-lb" {
+source "proxmox-iso" "lb" {
   boot_command = ["<enter><enter><f6><esc><wait> ", "autoinstall ds=nocloud-net;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/", "<enter><wait>"]
   boot_wait    = "5s"
   cores        = "${var.NUMBEROFCORES}"
@@ -183,7 +183,7 @@ source "proxmox-iso" "proxmox-focal-lb" {
 # Build for Ubuntu Focal 20.04 Nginx LoadBalancer
 # https://www.packer.io/docs/builders/proxmox/iso
 #################################################################
-source "proxmox-iso" "proxmox-focal-ws" {
+source "proxmox-iso" "ws" {
   boot_command = ["<enter><enter><f6><esc><wait> ", "autoinstall ds=nocloud-net;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/", "<enter><wait>"]
   boot_wait    = "5s"
   cores        = "${var.NUMBEROFCORES}"
@@ -235,7 +235,7 @@ source "proxmox-iso" "proxmox-focal-ws" {
 # Build for Ubuntu Focal 20.04 Database Server
 # https://www.packer.io/docs/builders/proxmox/iso
 #################################################################
-source "proxmox-iso" "proxmox-focal-db" {
+source "proxmox-iso" "db" {
   boot_command = ["<enter><enter><f6><esc><wait> ", "autoinstall ds=nocloud-net;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/", "<enter><wait>"]
   boot_wait    = "5s"
   cores        = "${var.NUMBEROFCORES}"
@@ -284,7 +284,7 @@ source "proxmox-iso" "proxmox-focal-db" {
 }
 
 build {
-  sources = ["source.virtualbox-iso.lb","source.virtualbox-iso.ws1","source.virtualbox-iso.ws2","source.virtualbox-iso.ws3","source.virtualbox-iso.db","source.proxmox-iso.proxmox-focal-lb", "source.proxmox-iso.proxmox-focal-ws", "source.proxmox-iso.proxmox-focal-db"]
+  sources = ["source.virtualbox-iso.lb","source.virtualbox-iso.ws1","source.virtualbox-iso.ws2","source.virtualbox-iso.ws3","source.virtualbox-iso.db","source.proxmox-iso.lb", "source.proxmox-iso.ws", "source.proxmox-iso.db"]
 
   provisioner "file" {
     source = "./id_ed25519_github_deploy_key"
@@ -309,7 +309,7 @@ build {
   provisioner "file" {
     source      = "./system.hcl"
     destination = "/home/vagrant/"
-    only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
+    only            = ["proxmox-iso.lb", "proxmox-iso.db","proxmox-iso.ws"]
   }
 
   ########################################################################################################################
@@ -319,7 +319,7 @@ build {
   provisioner "file" {
     source      = "../scripts/proxmox/post_install_iptables-dns-adjustment.sh"
     destination = "/home/vagrant/"
-    only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"] 
+    only            = ["proxmox-iso.lb", "proxmox-iso.db","proxmox-iso.ws"] 
   }
   
   ########################################################################################################################
@@ -331,7 +331,7 @@ build {
       "sudo mv /home/vagrant/post_install_iptables-dns-adjustment.sh /etc",
       "sudo chmod u+x /etc/post_install_iptables-dns-adjustment.sh"
     ]
-    only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
+    only            = ["proxmox-iso.lb", "proxmox-iso.db","proxmox-iso.ws"]
   }
 
   ########################################################################################################################
@@ -342,7 +342,7 @@ build {
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     scripts         = ["../scripts/proxmox/post_install_prxmx-firewall-configuration.sh"]
-    only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
+    only            = ["proxmox-iso.lb", "proxmox-iso.db","proxmox-iso.ws"]
   }
 
   ########################################################################################################################
@@ -356,7 +356,7 @@ build {
                        "../scripts/proxmox/post_install_prxmx-ssh-restrict-login.sh", 
                        "../scripts/proxmox/post_install_prxmx_install_hashicorp_consul.sh", 
                        "../scripts/proxmox/post_install_prxmx_update_dns_to_use_systemd_for_consul.sh"]
-    only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
+    only            = ["proxmox-iso.lb", "proxmox-iso.db","proxmox-iso.ws"]
   }
 
   ########################################################################################################################
@@ -368,7 +368,7 @@ build {
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     scripts         = ["../scripts/proxmox/post_install_change_consul_bind_interface.sh"]
-    only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
+    only            = ["proxmox-iso.lb", "proxmox-iso.db","proxmox-iso.ws"]
   }
 
   ############################################################################################
@@ -380,7 +380,7 @@ build {
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     scripts         = ["../scripts/proxmox/post_install_update_dynamic_motd_message.sh"]
-    only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
+    only            = ["proxmox-iso.lb", "proxmox-iso.db","proxmox-iso.ws"]
   }
   
   ############################################################################################
@@ -391,7 +391,7 @@ build {
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     scripts         = ["../scripts/proxmox/post_install_prxmx_ubuntu_install-collectd.sh"]
-    only            = ["proxmox-iso.proxmox-focal-lb", "proxmox-iso.proxmox-focal-db","proxmox-iso.proxmox-focal-ws"]
+    only            = ["proxmox-iso.lb", "proxmox-iso.db","proxmox-iso.ws"]
   } 
 
   #############################################################################
@@ -437,7 +437,7 @@ build {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     environment_vars = ["NUMBER=${var.TEAMNUMBER}"]
     script          = "../scripts/core-focal/post_install_ubuntu_lb.sh"
-    only            = ["proxmox-iso.proxmox-focal-lb"]
+    only            = ["proxmox-iso.lb"]
   }
 
   ########################################################################################################################
@@ -448,7 +448,7 @@ build {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     environment_vars = ["NUMBER=${var.TEAMNUMBER}"]
     script          = "../scripts/core-focal/post_install_ubuntu_ws.sh"
-    only            = ["proxmox-iso.proxmox-focal-ws"]
+    only            = ["proxmox-iso.ws"]
   }
 
   ########################################################################################################################
@@ -462,7 +462,7 @@ build {
                         "USERNAME=${var.non-root-user-for-database-username}",
                         "NUMBER=${var.TEAMNUMBER}"]
     script          = "../scripts/core-focal/post_install_ubuntu_db.sh"
-    only            = ["proxmox-iso.proxmox-focal-db"]
+    only            = ["proxmox-iso.db"]
   }
 
 
