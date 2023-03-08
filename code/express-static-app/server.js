@@ -2,7 +2,7 @@
 const express = require('express');
 // Define Express App
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 // Serve Static Assets
 app.use(express.static('public'));
 app.use('/static', express.static('public'))
