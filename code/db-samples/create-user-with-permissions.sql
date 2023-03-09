@@ -5,6 +5,9 @@
 -- USERPASS is defined in variables.pkr.hcl as a USER VARIABLE non-root-user-for-database-password 
 
 -- GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON posts.* TO worker@'$ACCESSFROMIP' IDENTIFIED BY '$USERPASS'; flush privileges;
-GRANT SELECT,INSERT,CREATE TEMPORARY TABLES ON posts.* TO '$USERNAME'@'$ACCESSFROMIP' IDENTIFIED BY '$USERPASS'; 
 
-flush privileges;
+-- 10.110.%.% is essentially 10.110.0.0/16 the SQL wildcard is % not *
+-- $USERNAME and $USERPASS will be passed in via variables file
+GRANT SELECT,INSERT,CREATE TEMPORARY TABLES ON posts.* TO '$USERNAME'@'10.110.%.%' IDENTIFIED BY '$USERPASS'; 
+
+FLUSH PRIVILEGES;
