@@ -31,7 +31,7 @@ app.get('/db', (req,res) => {
      host: process.env.FQDN,
        user: process.env.USER,
        password: process.env.PASS,
-       database: process.env.HOST
+       database: process.env.DATABASE
        });
   
   connection.connect((err) => {
