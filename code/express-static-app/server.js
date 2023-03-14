@@ -4,6 +4,8 @@ const mysql = require('mysql2');
 require('dotenv').config()
 console.log(process.env)
 
+var query_results = "";
+
 // Define Express App
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,8 +25,6 @@ app.get('/user', (req,res) => {
 });
 
 app.get('/db', (req,res) => {
-
-    var query_results = "";
   
   // create the connection to database
    const connection = mysql.createConnection({
@@ -44,21 +44,24 @@ app.get('/db', (req,res) => {
   
   
   // simple query
+  // https://www.digitalocean.com/community/tutorials/nodejs-res-object-in-expressjs
+  
    connection.query(
      'SELECT * FROM `comment`;',
        function(err, results, fields) {
            query_results = results;
            console.log(results); // results contains rows returned by server
           // console.log(fields); // fields contains extra meta data about results, if available
-           console.log(err); // return the error
+          if(err) throw err; 
+          console.log(err); // return the error
        }
               );
   
       res.statusCode = 200;
       res.setHeader('Content-Type', 'text/plain');
       res.write('The SQL query results are: ' + JSON.stringify(query_results));
-      res.write('Connection to MySQL status:' + conn_status)
-      res.end('Hello World' + host.hostname());
+      //res.write('Connection to MySQL status:' + conn_status)
+      //res.end('Hello World' + host.hostname());
   
   });
 
