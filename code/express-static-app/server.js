@@ -28,9 +28,9 @@ app.get('/db', (req,res) => {
   
   // create the connection to database
    const connection = mysql.createConnection({
-     host: process.env.FQDN,
-       user: process.env.USER,
-       password: process.env.PASS,
+       host: process.env.FQDN,
+       user: process.env.DBUSER,
+       password: process.env.DBPASS,
        database: process.env.DATABASE
        });
   
