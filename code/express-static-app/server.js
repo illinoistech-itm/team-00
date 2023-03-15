@@ -1,6 +1,7 @@
 // server.js
 const express = require('express');
 const mysql = require('mysql2');
+const os = require('os');
 require('dotenv').config()
 console.log(process.env)
 
@@ -49,19 +50,18 @@ app.get('/db', (req,res) => {
    connection.query(
      'SELECT * FROM `comment`;',
        function(err, results, fields) {
-           query_results = results;
-           console.log(results); // results contains rows returned by server
+          console.log(results); // results contains rows returned by server
           // console.log(fields); // fields contains extra meta data about results, if available
           if(err) throw err; 
-          console.log(err); // return the error
+          
+          query_results = results;
        }
               );
   
       res.statusCode = 200;
       res.setHeader('Content-Type', 'text/plain');
       res.write('The SQL query results are: ' + JSON.stringify(query_results));
-      //res.write('Connection to MySQL status:' + conn_status)
-      //res.end('Hello World' + host.hostname());
+      res.end('Hello from: ' + os.hostname());
   
   });
 
