@@ -31,7 +31,7 @@ variable "MEMORY" {
 
 variable "DISKSIZE" {
   type    = string
-  default = "25G"
+  default = "35G"
 }
 
 variable "STORAGEPOOL" {
