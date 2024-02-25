@@ -19,4 +19,5 @@ if [ -e /etc/consul.d/consul.hcl ]
     sleep 30
   else
     echo "The file /etc/consul.d/consul.hcl doesn't exist... something has happened with the installation of consul... throwing an error to kill the build process..."
+    exit 1
 fi
