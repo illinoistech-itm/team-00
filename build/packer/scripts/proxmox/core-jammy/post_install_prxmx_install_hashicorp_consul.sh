@@ -12,7 +12,7 @@ sudo mv -v /home/vagrant/node-exporter-consul-service.json /etc/consul.d/
 sudo systemctl enable consul.service
 
 echo "Sleeping for 30 seconds..."
-sleep 30
+sleep 60
 
 # Logic to check for presence of /etc/consul.d/consul.hcl file
 if [ -e /etc/consul.d/consul.hcl ]
