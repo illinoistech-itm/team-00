@@ -32,8 +32,9 @@ autoinstall:
     primary:
       - arches: [amd64]
         uri: "http://10.0.0.40/ubuntu"
-      - arches: [amd64]
-        uri: "http://10.0.0.40/hashicorp"
+    sources: 
+      hashicorp.list:
+            source: "deb http://10.0.0.40/hashicorp jammy main"
   network:
     network:
       version: 2
