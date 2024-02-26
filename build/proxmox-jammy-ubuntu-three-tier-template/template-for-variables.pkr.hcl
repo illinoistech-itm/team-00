@@ -51,19 +51,19 @@ variable "NUMBEROFCORES" {
 # This is the name of the Virtual Machine Template you want to create
 variable "frontend-VMNAME" {
   type    = string
-  default = ""
+  default = "team00-fe"
 }
 
 # This is the name of the Virtual Machine Template you want to create
 variable "backend-VMNAME" {
   type    = string
-  default = ""
+  default = "team00-be"
 }
 
 # This is the name of the Virtual Machine Template you want to create
 variable "loadbalancer-VMNAME" {
   type    = string
-  default = ""
+  default = "team00-lb"
 }
 
 variable "iso_checksum" {
