@@ -80,33 +80,33 @@ variable "iso_urls" {
 variable "DBUSER" {
   type      = string
   sensitive = true
-  default   = "REPLACE"
+  default   = "controller"
 }
 
 # This will be the Database user (non-root) password setup
 variable "DBPASS" {
   type      = string
   sensitive = true
-  default   = "REPLACE"
+  default   = "wonders"
 }
 
 # This variable is the IP address range to allow your connections
 variable "CONNECTIONFROMIPRANGE" {
   type      = string
   sensitive = true
-  default   = "REPLACE"
+  default   = "10.110.%.%"
 }
 
-# This will be the fully qualified domain name yourinitials.service.consul
+# This will be the fully qualified domain name team-00-be-vm0.service.consul
 variable "FQDN" {
   type      = string
   sensitive = true
-  default   = "REPLACE"
+  default   = "team-00-be-vm0.service.consul"
 }
 
 # This will be the Database name you default to (like posts or comments or customers)
 variable "DATABASE" {
   type      = string
   sensitive = true
-  default   = "REPLACE"
+  default   = "posts"
 }
