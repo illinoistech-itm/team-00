@@ -65,7 +65,7 @@ source "proxmox-iso" "backend-database" {
   insecure_skip_tls_verify = true
   unmount_iso              = true
   qemu_agent               = true
-  scsi_controller          = "virtio-scsi-single" 
+  #scsi_controller          = "virtio-scsi-single" 
   cloud_init               = true
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
@@ -125,7 +125,7 @@ source "proxmox-iso" "frontend-webserver" {
   insecure_skip_tls_verify = true
   unmount_iso              = true
   qemu_agent               = true
-  scsi_controller          = "virtio-scsi-single" 
+  #scsi_controller          = "virtio-scsi-single" 
   cloud_init               = true
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
@@ -185,7 +185,7 @@ source "proxmox-iso" "load-balancer" {
   insecure_skip_tls_verify = true
   unmount_iso              = true
   qemu_agent               = true
-  scsi_controller          = "virtio-scsi-single" 
+  #scsi_controller          = "virtio-scsi-single" 
   cloud_init               = true
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
