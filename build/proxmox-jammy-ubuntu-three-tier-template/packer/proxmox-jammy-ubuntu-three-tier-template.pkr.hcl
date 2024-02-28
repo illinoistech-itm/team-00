@@ -26,7 +26,7 @@ source "proxmox-iso" "backend-database" {
     "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
     "<f10><wait>"
   ]
-  boot_wait = "25s"
+  boot_wait = "9s"
   cores     = "${var.NUMBEROFCORES}"
   node      = "${local.NODENAME}"
   username  = "${local.USERNAME}"
@@ -146,7 +146,7 @@ source "proxmox-iso" "load-balancer" {
     "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
     "<f10><wait>"
   ]
-  boot_wait = "45s"
+  boot_wait = "8s"
   cores     = "${var.NUMBEROFCORES}"
   node      = "${local.NODENAME}"
   username  = "${local.USERNAME}"
