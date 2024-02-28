@@ -35,8 +35,6 @@ source "proxmox-iso" "backend-database" {
   disks {
     disk_size    = "${var.DISKSIZE}"
     storage_pool = "${var.STORAGEPOOL}"
-    # storage_pool_type is deprecated and should be omitted, it will be removed in a later version of the proxmox plugin
-    # storage_pool_type = "lvm"
     type = "virtio"
   }
   http_directory   = "subiquity/http"
@@ -65,7 +63,7 @@ source "proxmox-iso" "backend-database" {
   insecure_skip_tls_verify = true
   unmount_iso              = true
   qemu_agent               = true
-  #scsi_controller          = "virtio-scsi-single" 
+  scsi_controller          = "virtio-scsi-single" 
   cloud_init               = true
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
@@ -95,8 +93,6 @@ source "proxmox-iso" "frontend-webserver" {
   disks {
     disk_size    = "${var.DISKSIZE}"
     storage_pool = "${var.STORAGEPOOL}"
-    # storage_pool_type is deprecated and should be omitted, it will be removed in a later version of the proxmox plugin
-    # storage_pool_type = "lvm"
     type = "virtio"
   }
   http_directory   = "subiquity/http"
@@ -125,7 +121,7 @@ source "proxmox-iso" "frontend-webserver" {
   insecure_skip_tls_verify = true
   unmount_iso              = true
   qemu_agent               = true
-  #scsi_controller          = "virtio-scsi-single" 
+  scsi_controller          = "virtio-scsi-single" 
   cloud_init               = true
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
@@ -155,8 +151,6 @@ source "proxmox-iso" "load-balancer" {
   disks {
     disk_size    = "${var.DISKSIZE}"
     storage_pool = "${var.STORAGEPOOL}"
-    # storage_pool_type is deprecated and should be omitted, it will be removed in a later version of the proxmox plugin
-    # storage_pool_type = "lvm"
     type = "virtio"
   }
   http_directory   = "subiquity/http"
@@ -185,7 +179,7 @@ source "proxmox-iso" "load-balancer" {
   insecure_skip_tls_verify = true
   unmount_iso              = true
   qemu_agent               = true
-  #scsi_controller          = "virtio-scsi-single" 
+  scsi_controller          = "virtio-scsi-single" 
   cloud_init               = true
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
