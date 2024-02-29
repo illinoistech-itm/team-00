@@ -101,7 +101,7 @@ variable "CONNECTIONFROMIPRANGE" {
 variable "FQDN" {
   type      = string
   sensitive = true
-  default   = "team-00-be-vm0.service.consul"
+  default   = "team00-be-vm0.service.consul"
 }
 
 # This will be the Database name you default to (like posts or comments or customers)
