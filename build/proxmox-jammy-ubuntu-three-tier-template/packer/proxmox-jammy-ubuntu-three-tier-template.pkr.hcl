@@ -68,7 +68,7 @@ source "proxmox-iso" "backend-database" {
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
   ssh_username             = "vagrant"
-  ssh_timeout              = "28m"
+  ssh_timeout              = "20m"
   template_description     = "A Packer template for Ubuntu Jammy Database 3 tier" 
   vm_name                  = "${var.backend-VMNAME}"
 }
@@ -126,7 +126,7 @@ source "proxmox-iso" "frontend-webserver" {
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
   ssh_username             = "vagrant"
-  ssh_timeout              = "28m"
+  ssh_timeout              = "20m"
   template_description     = "A Packer template for Ubuntu Jammy Frontend webserver"
   vm_name                  = "${var.frontend-VMNAME}"
 }
@@ -184,13 +184,13 @@ source "proxmox-iso" "load-balancer" {
   cloud_init_storage_pool  = "${var.STORAGEPOOL}"
   ssh_password             = "${local.SSHPW}"
   ssh_username             = "vagrant"
-  ssh_timeout              = "28m"
+  ssh_timeout              = "20m"
   template_description     = "A Packer template for Ubuntu Jammy"
   vm_name                  = "${var.loadbalancer-VMNAME}"
 }
 
 build {
-  sources = ["source.proxmox-iso.frontend-webserver", "source.proxmox-iso.backend-database", "source.proxmox-iso.load-balancer"]
+  sources = ["source.proxmox-iso.backend-database","source.proxmox-iso.frontend-webserver", "source.proxmox-iso.load-balancer"]
 
   #############################################################################
   # Using the file provisioner to SCP this file to the instance 
