@@ -36,6 +36,7 @@ source "proxmox-iso" "backend-database" {
     disk_size    = "${var.DISKSIZE}"
     storage_pool = "${var.STORAGEPOOL}"
     type = "virtio"
+    io_thread = true
   }
   http_directory   = "subiquity/http"
   http_port_max    = 9200
@@ -94,6 +95,7 @@ source "proxmox-iso" "frontend-webserver" {
     disk_size    = "${var.DISKSIZE}"
     storage_pool = "${var.STORAGEPOOL}"
     type = "virtio"
+    io_thread = true
   }
   http_directory   = "subiquity/http"
   http_port_max    = 9200
@@ -152,6 +154,7 @@ source "proxmox-iso" "load-balancer" {
     disk_size    = "${var.DISKSIZE}"
     storage_pool = "${var.STORAGEPOOL}"
     type = "virtio"
+    io_thread = true
   }
   http_directory   = "subiquity/http"
   http_port_max    = 9200
