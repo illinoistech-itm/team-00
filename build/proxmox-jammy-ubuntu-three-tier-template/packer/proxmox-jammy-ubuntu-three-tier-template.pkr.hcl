@@ -330,7 +330,8 @@ build {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
     scripts = ["../scripts/proxmox/three-tier/frontend/post_install_prxmx_frontend-firewall-open-ports.sh",
       "../scripts/proxmox/three-tier/frontend/post_install_prxmx_frontend-webserver.sh",
-    "../scripts/proxmox/three-tier/frontend/application-start.sh"]
+    "../scripts/proxmox/three-tier/frontend/application-start.sh",
+    "../scripts/proxmox/three-tier/frontend/install-outside-repo.sh"]
     environment_vars = ["DBUSER=${var.DBUSER}", "DBPASS=${var.DBPASS}", "DATABASE=${var.DATABASE}", "FQDN=${var.FQDN}"]
     only             = ["proxmox-iso.frontend-webserver"]
   }
