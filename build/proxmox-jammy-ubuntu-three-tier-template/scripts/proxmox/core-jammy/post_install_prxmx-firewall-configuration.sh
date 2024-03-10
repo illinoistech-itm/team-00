@@ -7,6 +7,11 @@
 # register with the Consul DNS service 
 # Instances will be using firewalld
 ##############################################################################################
+echo "Printing current network status information..."
+ip a sh
+sudo networkctl
+sudo resolvectl
+
 sudo apt-get update
 sudo apt-get install -y firewalld
 
