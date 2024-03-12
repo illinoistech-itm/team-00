@@ -85,7 +85,7 @@ source "proxmox-iso" "frontend-webserver" {
     "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
     "<f10><wait>"
   ]
-  boot_wait = "5s"
+  boot_wait = "15s"
   cores     = "${var.NUMBEROFCORES}"
   node      = "${local.NODENAME}"
   username  = "${local.USERNAME}"
