@@ -48,7 +48,7 @@ source "proxmox-iso" "backend-database" {
 
   network_adapters {
     bridge = "vmbr0"
-    model  = "virtio"
+    model  = "e1000"
   }
   network_adapters {
     bridge = "vmbr1"
@@ -107,7 +107,7 @@ source "proxmox-iso" "frontend-webserver" {
 
   network_adapters {
     bridge = "vmbr0"
-    model  = "virtio"
+    model  = "e1000"
   }
   network_adapters {
     bridge = "vmbr1"
@@ -166,7 +166,7 @@ source "proxmox-iso" "load-balancer" {
 
   network_adapters {
     bridge = "vmbr0"
-    model  = "virtio"
+    model  = "e1000"
   }
   network_adapters {
     bridge = "vmbr1"
