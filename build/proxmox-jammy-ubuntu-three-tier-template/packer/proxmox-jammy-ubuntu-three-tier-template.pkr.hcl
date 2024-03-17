@@ -101,6 +101,9 @@ source "proxmox-iso" "frontend-webserver" {
     io_thread = true
   }
   http_directory   = "subiquity/http"
+  # https://developer.hashicorp.com/packer/integrations/hashicorp/proxmox/latest/components/builder/iso#http-directory-configuration
+  #http_interface   = "ens19"
+  http_bind_address = "10.0.0.45"  
   http_port_max    = 9200
   http_port_min    = 9001
   iso_checksum     = "${var.iso_checksum}"
@@ -160,6 +163,9 @@ source "proxmox-iso" "load-balancer" {
     io_thread = true
   }
   http_directory   = "subiquity/http"
+  # https://developer.hashicorp.com/packer/integrations/hashicorp/proxmox/latest/components/builder/iso#http-directory-configuration
+  #http_interface   = "ens19"
+  http_bind_address = "10.0.0.45"  
   http_port_max    = 9200
   http_port_min    = 9001
   iso_checksum     = "${var.iso_checksum}"
