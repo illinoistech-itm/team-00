@@ -8,9 +8,9 @@ sudo apt-get install -y curl rsync
 # Steps to add NodeJS repository to your Ubuntu Server for Node and NPM installation
 # Remove and or replace with your required webserver stack
 # https://github.com/nodesource/distributions/blob/master/README.md#using-ubuntu-2
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
-sudo npm install -g npm@9.6.0
+#sudo npm install -g npm
 
 # Change directory to the location of your JS code
 cd /home/vagrant/team-00/code/express-static-app/
