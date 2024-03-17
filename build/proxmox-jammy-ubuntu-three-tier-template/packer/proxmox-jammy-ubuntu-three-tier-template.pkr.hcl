@@ -43,7 +43,7 @@ source "proxmox-iso" "backend-database" {
   #http_interface   = "ens20"
   http_bind_address = "philedelphiaphilharmonic.service.consul"
   http_port_max    = 9200
-  http_port_min    = 9001
+  http_port_min    = 9002
   iso_checksum     = "${var.iso_checksum}"
   iso_urls         = "${var.iso_urls}"
   iso_storage_pool = "local"
@@ -105,7 +105,7 @@ source "proxmox-iso" "frontend-webserver" {
   #http_interface   = "ens20"
   http_bind_address = "philedelphiaphilharmonic.service.consul"  
   http_port_max    = 9200
-  http_port_min    = 9001
+  http_port_min    = 9002
   iso_checksum     = "${var.iso_checksum}"
   iso_urls         = "${var.iso_urls}"
   iso_storage_pool = "local"
@@ -167,7 +167,7 @@ source "proxmox-iso" "load-balancer" {
   #http_interface   = "ens20"
   http_bind_address = "philedelphiaphilharmonic.service.consul"  
   http_port_max    = 9200
-  http_port_min    = 9001
+  http_port_min    = 9002
   iso_checksum     = "${var.iso_checksum}"
   iso_urls         = "${var.iso_urls}"
   iso_storage_pool = "local"
