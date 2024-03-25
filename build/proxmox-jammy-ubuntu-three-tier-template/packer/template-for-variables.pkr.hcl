@@ -38,9 +38,23 @@ variable "DISKSIZE" {
 
 # This is the name of the disk the build template will be stored on in the 
 # Proxmox cloud -- No need to edit this
+
+# Define a list of values
+my_list = ["datadisk4", "datadisk3", "datadisk2", "datadisk1"]
+
+# Get a random value from the list
+# random_value = random.choice(my_list)
+
+# Use the random value in your Packer template
+# For example:
+# some_key = "${random_value}"
+
+# Note: Make sure to import the 'random' module at the beginning of your HCL file.
+
+
 variable "STORAGEPOOL" {
   type    = string
-  default = "datadisk1"
+  default = random.choice(my_list)
 }
 
 variable "NUMBEROFCORES" {
